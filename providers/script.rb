@@ -28,14 +28,16 @@ action :run do
   script new_resource.name do
     interpreter   "bash"
     code          script_code
-    user          new_resource.user     if new_resource.user
-    creates       new_resource.creates  if new_resource.creates
-    cwd           new_resource.cwd      if new_resource.cwd
-    group         new_resource.group    if new_resource.group
-    path          new_resource.path     if new_resource.path
-    returns       new_resource.returns  if new_resource.returns
-    timeout       new_resource.timeout  if new_resource.timeout
-    umask         new_resource.umask    if new_resource.umask
+    user          new_resource.user        if new_resource.user
+    creates       new_resource.creates     if new_resource.creates
+    cwd           new_resource.cwd         if new_resource.cwd
+    group         new_resource.group       if new_resource.group
+    path          new_resource.path        if new_resource.path
+    returns       new_resource.returns     if new_resource.returns
+    timeout       new_resource.timeout     if new_resource.timeout
+    umask         new_resource.umask       if new_resource.umask
+    retries       new_resource.retries     if new_resource.retries
+    retry_delay   new_resource.retry_delay if new_resource.retry_delay
     environment(script_environment)
   end
 
